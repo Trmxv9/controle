@@ -30,7 +30,7 @@ O Trmx Financial Tracker é um sistema robusto e fácil de usar para o gerenciam
 Sinta-se à vontade para explorar, contribuir e personalizar este rastreador financeiro de acordo com suas necessidades!
 
 ## Licença
-Este projeto é licenciado sob a Licença Trmx Codes - consulte o arquivo [LICENSE.md](LICENSE.md) para obter detalhes.
+Este projeto é licenciado sob a Licença Trmx Codes - consulte o arquivo [LICENSE.md](LICENSE) para obter detalhes.
 
 ![Trmx Codes](photos/home.png)
 ![Trmx Codes](photos/historico.png)
