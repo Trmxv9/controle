@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <title>Controle Financeiro</title>
+    <link rel="stylesheet" href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css" />
+    <link rel="stylesheet" href="https://site-assets.fontawesome.com/releases/v5.15.4/css/all.css"
+        crossorigin="anonymous" />
+</head>
+
+<style>
+    #entrada-list,
+    #saida-list {
+        max-height: 300px;
+        /* Defina a altura máxima que desejar */
+        overflow-y: auto;
+        /* Adiciona uma barra de rolagem vertical se o conteúdo ultrapassar a altura máxima */
+    }
+</style>
+
+<body class="bg-gray-100 p-8">
+    <div class="max-w-md mx-auto bg-white rounded p-8 shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Controle Financeiro</h1>
+
+        <!-- Seção de Entradas -->
+        <div>
+            <h2 class="text-xl font-semibold mb-2">Entradas</h2>
+            <!-- Formulário para Adicionar Entrada -->
+            <form id="form-entrada" class="grid gap-3 items-center">
+                <input type="text" id="entrada-nome" placeholder="Nome" class="mr-2 p-2 border rounded" required>
+                <input type="number" id="entrada-valor" placeholder="Valor" class="mr-2 p-2 border rounded" required>
+                <button type="button" onclick="adicionarEntrada()"
+                    class="bg-blue-500 text-white p-2 rounded">Adicionar</button>
+            </form>
+        </div>
+
+        <!-- Seção de Saídas -->
+        <div class="mt-8">
+            <h2 class="text-xl font-semibold mb-2">Saídas</h2>
+            <!-- Formulário para Adicionar Saída -->
+            <form id="form-saida" class="grid gap-3 items-center">
+                <input type="text" id="saida-nome" placeholder="Nome" class="mr-2 p-2 border rounded" required>
+                <input type="number" id="saida-valor" placeholder="Valor" class="mr-2 p-2 border rounded" required>
+                <button type="button" onclick="adicionarSaida()"
+                    class="bg-red-500 text-white p-2 rounded">Retirar</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Modal de Histórico -->
+    <div id="historico-modal" class="fixed top-0 left-0 w-full h-full bg-gray-800 bg-opacity-50 hidden">
+        <div class="bg-white p-8 max-w-md mx-auto rounded shadow-md mt-20">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-xl font-semibold">Histórico</h2>
+                <button id="fechar-historico" class="text-gray-500 hover:text-gray-700 cursor-pointer">Fechar</button>
+            </div>
+            <div id="historico-modal-content"></div>
+        </div>
+    </div>
+
+    <!-- Dados financeiros de usuários  -->
+
+    <div class="max-w-md mt-5 mx-auto bg-white rounded p-8 shadow-md">
+        <h1 class="text-2xl font-bold mb-4">Controle Financeiro</h1>
+
+        <div class="mt-2 mb-3">
+            <h2 class="text-xl font-semibold mb-2">Carteira</h2>
+            <p id="balanco" class="text-gray-700"></p>
+        </div>
+
+        <div class="relative h-10 mb-4 w-full min-w-[200px]">
+            <div class="absolute top-2/4 right-3 grid h-5 w-5 -translate-y-2/4 place-items-center text-blue-gray-500">
+                <i class="fas fa-file-search" aria-hidden="true"></i>
+            </div>
+            <input
+                class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 !pr-9 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                placeholder="Filtrar por nome" id="filtro-nome" oninput="filtrarPorNome()" />
+
+        </div>
+
+        <h2 class="text-xl font-semibold mb-2">Entradas</h2>
+        <ul id="entrada-list" class="list-disc ml-4 mb-4"></ul>
+
+        <h2 class="text-xl font-semibold mb-2">Saídas</h2>
+        <ul id="saida-list" class="list-disc ml-4 mb-4"></ul>
+
+
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        function filtrarPorNome() {
+            const filtroNome = document.getElementById("filtro-nome").value.toLowerCase();
+            const entradas = document.getElementById("entrada-list").getElementsByTagName("li");
+            const saidas = document.getElementById("saida-list").getElementsByTagName("li");
+
+            // Função para ocultar ou exibir elementos com base no filtro
+            function mostrarOcultarElemento(elemento, mostrar) {
+                elemento.style.display = mostrar ? "block" : "none";
+            }
+
+            // Itera sobre as entradas e aplica o filtro
+            for (let i = 0; i < entradas.length; i++) {
+                const nomeEntrada = entradas[i].textContent.toLowerCase();
+                mostrarOcultarElemento(entradas[i], nomeEntrada.includes(filtroNome));
+            }
+
+            // Itera sobre as saídas e aplica o filtro
+            for (let i = 0; i < saidas.length; i++) {
+                const nomeSaida = saidas[i].textContent.toLowerCase();
+                mostrarOcultarElemento(saidas[i], nomeSaida.includes(filtroNome));
+            }
+        }
+    </script>
+</body>
+
+</html>

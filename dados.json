@@ -1,0 +1,48 @@
+{
+    "entradas": [
+        {
+            "nome": "sergio",
+            "valor": 132.26,
+            "historico": [
+                "Adicionou 132.26"
+            ]
+        },
+        {
+            "nome": "kaio",
+            "valor": 1927.74,
+            "historico": [
+                "Adicionou 1927.74"
+            ]
+        }
+    ],
+    "saidas": [
+        {
+            "nome": "sergio",
+            "valor": 80,
+            "historico": [
+                "Retirou 80.00"
+            ]
+        },
+        {
+            "nome": "sergio",
+            "valor": 21.2,
+            "historico": [
+                "Retirou 21.20"
+            ]
+        },
+        {
+            "nome": "kaio",
+            "valor": 77.74,
+            "historico": [
+                "Retirou 77.74"
+            ]
+        },
+        {
+            "nome": "sergio",
+            "valor": 10,
+            "historico": [
+                "Retirou 10.00"
+            ]
+        }
+    ]
+}
