@@ -1,6 +1,6 @@
 ## PT-BR
 
-# Controle Financeiro Pessoal - Trmx Financial Tracker
+# Controle Financeiro Pessoal - Trmx Financial Tracker Version: 1.0
 
 ## Visão Geral
 O Trmx Financial Tracker é um sistema robusto e fácil de usar para o gerenciamento de finanças pessoais, projetado para ajudá-lo a ter controle sobre suas atividades financeiras. Acompanhe suas entradas, saídas e saúde financeira geral com facilidade.
