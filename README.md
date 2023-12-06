@@ -67,3 +67,7 @@ Feel free to explore, contribute, and make this financial tracker your own!
 
 ## License
 This project is licensed under the Trmx Codes License - see the [LICENSE.md](LICENSE.md) file for details.
+
+
+![Trmx Codes](photos/site)
+
